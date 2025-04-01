@@ -2,7 +2,7 @@ from pwn import p32
 import sys
 
 # the offset of buffer start from the ebp (start of the frame)
-buffer_offset = 12   # replace this with the offset found in gdb
+buffer_offset = 8   # replace this with the offset found in gdb
 
 # don't change, word size is 4 bytes for a 32-bit system
 word_size = 4  
