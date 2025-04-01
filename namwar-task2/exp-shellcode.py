@@ -4,8 +4,8 @@ import sys
 
 # Update the following two variables with the correct values
 
-# buffer_start = 0xffffce4b #gdb
-buffer_start = 0xffffce8b #direct run
+# buffer_start = 0xffffd05b #gdb
+buffer_start = 0xffffd01b #direct run
 
 buffer_offset = 109
 
