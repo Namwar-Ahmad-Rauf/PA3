@@ -7,7 +7,7 @@ From which, we find the buffer address as: 0xffffd198
 
 # Buffer Offset from Frame Pointer
 The buffer is located at: ebp - 0x10
-The return address is located at: ebp +
+The return address is located at: ebp + 4
 Therefore, the total offset from the start of the buffer to the return address is: (ebp + 4) - (ebp - 0x10) = 0x14 = 20 bytes
 
 
