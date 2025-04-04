@@ -4,8 +4,7 @@ import sys
 # buffer_start = 0xffffd0ed #default given
 
 # buffer_start = 0xffffd05b #gdb
-# buffer_start = 0xffffd01b #direct run
-buffer_start =  0xffffd00b #application deployment run
+buffer_start = 0xffffd01b #direct run
 
 buffer_offset = 109
 
